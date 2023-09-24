@@ -1,0 +1,16 @@
+h1 {
+    margin-bottom:55%;
+    font-size:40px;
+    color:black;
+    font-weight:bolder;
+}
+p{
+    position:absolute;
+    top:13%;
+    left:37%;
+    font-size:22px;
+    color:black;
+}
+body{
+    margin-top: -20px;
+}

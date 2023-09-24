@@ -1,0 +1,21 @@
+<footer class="footer">
+
+    <ul class="menu">
+      <div class="care-menu">
+        <li class="menu-item"><a class="menu-link" href="/products" id="header-menu">Our Products</a></li>
+        <li class="menu-item" *ngFor="let item of allCategories">
+          <a class="menu-link" href="#" [routerLink]="['/productCategory']" [queryParams]="{ category : item.type }">{{item.type}}</a>
+        </li>
+      </div>
+    </ul>
+    <ul class="contact">
+      <h2>Feel free to contact us</h2>
+
+        <li class="menu-item"><a class="menu-link-contact" href="https://www.facebook.com/farah.saeed.1481169"><i class="material-icons">facebook</i></a></li>
+        <li class="menu-item"><a class="menu-link-contact" href="#"><i class="material-icons">telegram</i></a></li>
+        <li class="menu-item"><a class="menu-link-contact" href="mailto:farahsaedxc@gmail.com"><i class="material-icons">mail</i></a></li>
+        <li class="menu-item"><a class="menu-link-contact" href="#"><i class="material-icons">phone</i></a></li>
+
+    </ul>
+  </footer>
+  <!-- <p>&copy;FCIH | All Rights Reserved</p> -->

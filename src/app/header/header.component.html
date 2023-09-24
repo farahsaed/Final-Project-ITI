@@ -1,0 +1,111 @@
+<div class="container">
+<div class="nav-logo">
+  <img src="https://cdn-icons-png.flaticon.com/128/807/807175.png" alt="logo" />
+  <h1>Med<span>Life</span></h1>
+</div>
+<!-- <div class="container">
+  <input type="text" class="w-50 mt-3 p-2" [(ngModel)] = "searchValue" older = "Search..." #filter/> -->
+  <!-- <button (click)="search"><span id="search-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.<path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></span></button> -->
+<!-- </div> -->
+<!-- <div class="login">
+  <a href="">
+    <img src="https://icon-library.com/images/guest-account-icon/guest-account-icon-17.jpg" alt="">
+    <span>Account</span><p>Login / Register</p>
+  </a>
+</div> -->
+  <div class="head">
+    <div class="login">
+      <a routerLink="/login">
+        <img src="https://icon-library.com/images/guest-account-icon/guest-account-icon-17.jpg" alt="">
+        <span>Account</span><p>Login / Register</p>
+      </a>
+    </div>
+    <div class="cart">
+      <a href="">
+        <img src="https://static.vecteezy.com/system/resources/previews/009/701/669/non_2x/shopping-bags-line-green-and-black-icon-vector.jpg"/>
+        <div class="cart-text d-inline">
+          <span>Cart</span>
+          <p>$0.00</p>
+        </div>
+        </a>
+    </div>
+   </div>
+</div>
+<nav class="navbar">
+  <ul class="navbar-links" id="list-logo">
+    <li class="navbar-dropdown">
+      <a href="#" class="navbar-logo"
+      ><i class="material-icons">menu</i> Browse Categories</a>
+      <div class="dropdown">
+         <li class="nav-item" *ngFor="let item of allCategories">
+        <a class="nav-link" href="#" [routerLink]="['/productCategory']" [queryParams]="{ category : item.type }">{{item.type}}</a>
+      </li>
+      </div>
+    </li>
+ 
+  <!-- <li class="nav-item dropmenu">
+    <a class="nav-link nav-link-hover" href="#" routerLink="/products">Products</a>
+    <ul id="submenu" class="">
+      <li class="nav-item" *ngFor="let item of allProducts">
+        <a class="nav-link" href="#" [routerLink]="['/productCategory']" [queryParams]="{ category : item.type }">{{item.type}}</a>
+      </li>
+    </ul>
+  </li> -->
+</ul>
+  <ul class="navbar-links">
+    <li class="nav-items">
+      <a href="/home">Home</a>
+    </li>
+    <li class="nav-items">
+      <a href="/products">Products</a>
+    </li>
+    <li class="nav-items">
+      <a href="#">Contact</a>
+    </li>
+    <li class="nav-items">
+      <a href="#about">About Us</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+ <nav> 
+<ul>
+<li id="dropdown-list"> 
+  <div class="dropdown">
+    <button class="dropbtn">
+      <div class="cat-container">        
+      <div class="bar-icon">
+        <span class="bars">
+         
+        </span>
+      </div>
+    </div>
+    <div class="bar-text">
+      Browse Categories
+    </div>  
+    </button>
+    <div class="dropdown-content">
+    <a href="#">Hair Care</a>
+    <a href="#">Skin Care</a>
+    <a href="#">Make Up</a>
+    <a href="#">Medicines</a>
+    
+    </div>
+  </div>  
+ </li>
+
+<li class="list-items"><a href="">Home</a></li>
+<li class="list-items"><a routerLink="/products">Products</a></li>
+<li class="list-items"><a href="">Contact</a></li>
+</ul>
+</nav>
+</body>
+</html> -->

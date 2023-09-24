@@ -1,0 +1,67 @@
+.about{
+    position: relative;
+    margin-top: 30px;
+}
+  .about-section img{
+    width: 100%;
+    margin-top: 100px;
+    filter:blur(3px);
+  }
+  .on-about{
+    position: absolute;
+  }
+  .on-about-one{
+    position: absolute;
+    bottom: 10px;
+    left: 700px;
+    background: rgba(red, green, blue, alpha);
+
+  }
+  .on-about-one img{
+     width: 400px;
+     border-radius: 10px;
+     box-shadow: 3px 3px 3px gray;
+  }
+  .on-about-one .head-one{
+      position: relative;
+      bottom: 210px;
+      left: 15px;
+      font-weight: bold;
+  }
+  .on-about-one .paragraph-one{
+    position: relative;
+    bottom: 210px;
+    left: 15px;
+    color:rgb(83, 83, 83);
+    width: 200px;
+}
+.on-about-one img :hover{
+  transition:0.3s;
+  transform:scale(1.3);
+}
+
+.on-about-two{
+  position: absolute;
+    bottom: 30px;
+    left: 120px;
+    background: rgba(red, green, blue, alpha);
+}
+.on-about-two img{
+  width: 400px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px gray;
+}
+.on-about-two .head-two{
+  position: relative;
+  bottom: 180px;
+  left: 100px;
+  font-weight: bold;
+}
+.on-about-two .paragraph-two{
+  position: relative;
+  bottom: 180px;
+  left: 100px;
+  color:rgb(83, 83, 83);
+    width: 250px;
+}

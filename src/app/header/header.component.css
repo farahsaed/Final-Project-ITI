@@ -1,0 +1,268 @@
+
+  img {
+      width: 100px;
+  }
+  .nav-logo h1{
+    color: #2d7d44;
+  }
+  h1 span{
+    color: #91a243;
+  }
+
+  .dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      width: 270px;
+      padding: 20px 30px;
+      font-size: 18px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+  }
+
+  .bar-text {
+      margin-top: -27px;
+  }
+
+  .dropdown {
+      position: relative;
+      display: inline-block;
+
+  }
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+  }
+
+  .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+  }
+
+  .dropdown-content a:hover {
+      background-color: #f1f1f1
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+  }
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* nav {
+    width: 100%;
+    background-color: #5bc45f;
+} */
+  /* nav {
+      width: 100%;
+      background-color: #5bc45f;
+  }
+
+  nav ul {
+      display: flex;
+      flex-direction: row;
+  }
+
+  #dropdown-list {
+      list-style: none;
+  }
+
+  .list-items {
+      list-style: none;
+      padding: 20px;
+  }
+
+  .list-items a {
+      text-decoration: none;
+      color: white;
+      padding: 20px;
+      margin-left: 20px;
+      min-width: fit-content;
+  }
+
+  .list-items a:hover {
+      background-color: #3e8e41;
+
+  } */
+img{
+    width: 90px;
+}
+  .container{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: 0px 70px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    background-color: #79AC78;
+  }
+  #list-logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 0px 20px;
+  }
+  .nav-logo img{
+    width:60px;
+    margin-top: 10px;
+  }
+ 
+  .navbar-links {
+    list-style-type: none;
+    display: flex;
+  }
+  .navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 20px 20px;
+    font-weight: 400;
+    font-size: 18px;
+    transition: 0.4s all;
+  }
+  .navbar-links .nav-items a:hover {
+      background-color: #3e8e41 ;
+  }
+  
+  .navbar-links li.navbar-dropdown {
+    position: relative;
+  }
+  
+  .navbar-links li.navbar-dropdown:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .navbar-links li.navbar-dropdown .dropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    padding: 20px 0;
+    top: 100%;
+    transform: translateY(50px);
+    left: 0;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    z-index: 111;
+    transition: 0.4s all;
+  }
+  .navbar-links li.navbar-dropdown .dropdown a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 400;
+    color: black;
+  }
+  .navbar-dropdown .dropdown a:hover {
+    padding-left: 30px;
+  }
+  .navbar-links li.navbar-dropdown .dropdown a {
+    color: #79AC78;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    /* background-color: #f00; */
+    background-image: url("http://lorempixel.com/1366/698/food/");
+    background-size: cover;
+  }
+  
+  .header-inner {
+    text-align: center;
+    color: #ff3f34;
+    text-shadow: 0px 10px 10px rgba(0, 0, 0, .8);
+  }
+  
+  .header-inner h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 130px;
+  }
+  
+  .header-inner form input[type="search"] {
+    position: relative;
+    width: 500px;
+    border: none;
+    padding: 15px;
+    border-radius: 27px;
+    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.3);
+    z-index: 11;
+  }
+  .header-inner form input[type="search"]:focus {
+    outline: none;
+  }
+  
+  .header-inner form input[type="search"]:focus + div {
+    z-index: 1;
+    opacity: 1;
+  }
+  
+  ::placeholder {
+    color: #666;
+    font-weight: 400;
+  }
+ 
+.head{
+  display: flex;
+}
+.head .login{
+    margin-right: 50px;
+    margin-top: 10px;
+}
+.head .login img{
+  width: 60px;
+}
+.head .login span{
+  font-size: 18px;
+  margin-left: 6px;
+}
+.head .login p{
+  color:gray;
+  margin-left: 60px;
+  margin-top: -20px;
+}
+.head .cart-text p{
+    margin-left: 88px;
+    margin-top: -35px;
+    color: gray;
+}
+.head .cart-text span{
+    font-size: 18px;
+}
+.head a{
+  text-decoration: none;
+  color: black;
+}
+.head a:hover{
+    color: #3e8e41;
+    transition: 0.4;
+  }
+  
+

@@ -1,0 +1,67 @@
+.container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+footer{
+  display: flex;
+   width: 100%;
+   justify-content: space-between;
+   margin-top: 100px;
+   padding: 100px 20px 10px 20px;
+   background-color:#79AC78 ;
+}
+.menu{
+   margin-top: -50px;
+   display: inline;
+   font-size: 17px;
+   margin-left: 80px;
+   margin-right: 50px;
+}
+.med-menu{
+  display: inline;
+  margin-left: 50px;
+}
+.menu .menu-item{
+   /* list-style-type: none; */
+   margin-bottom: 15px;
+   /* margin-left: 30px; */
+   margin-right: 40px;
+   color: white;
+   /* display: inline-block; */
+}
+.menu .menu-item #header-menu{
+  list-style-type: none;
+}
+.menu-link {
+  text-decoration: none;
+  color: white;
+}
+.contact{
+   display: inline-flex;
+}
+.contact h2{
+    margin-top: -50px;  
+    /* margin-right: -100px; */
+    color: white;
+}
+.contact .menu-item{
+  /* margin-left: 90px; */
+  /* margin-right: 200px; */
+  position: relative;
+  right: 200px;
+  /* margin-left: 10px; */
+}
+.contact li {
+  color: white;
+  list-style: none;
+}
+.contact li .menu-link-contact{
+    margin: 10px;
+}
+.contact li a {
+  color: white;
+}
+.contact li a :hover , .menu-link:hover{
+  color: rgb(214, 214, 214);
+}
