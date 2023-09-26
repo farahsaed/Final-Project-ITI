@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'products', component: AllProductsComponent },
   { path: 'productDetails/:id', component: ProductDetailsComponent },
   { path: 'productCategory', component: ProductCategoryComponent},
- // {path:'**' , component:PageNotFoundComponent}
+  {path:'**' , component:PageNotFoundComponent}
 
 
 ];
