@@ -1,40 +1,39 @@
 import { Component , Input} from '@angular/core';
 import { ProductService } from '../product.service';
 import { HeaderComponent } from '../header/header.component';
+import { ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
-  template:`<app-header></app-header>`,
   styleUrls: ['./all-products.component.css']
 })
 export class AllProductsComponent{
-  allProducts:any[] = []; 
+  allProducts: any[] = []; 
   allProdData:any[] = [];
-  @Input() products!: AllProductsComponent;
-
+  searchedProds : any[] = []
   search!: HeaderComponent;
-  private searchVal = "";
-  set searchValue(searchVal:string){
-     this.searchVal = searchVal;
-     this.searchAllProducts(searchVal)
-  } 
-  constructor(private productService:ProductService){}
+  public searchVal = "";
+
+  constructor(private productService:ProductService ,private route: ActivatedRoute){
+    let products :Observable<any>;
+    route.params.subscribe((params) => {
+      if(params['searchTerm'])
+         products = this.productService.searchAllProducts(params['searchTerm']);
+      else
+         products = this.productService.getAllProducts();
+      
+      products.subscribe((products) => {
+        this.allProducts = products;
+      })   
+    })
+  }
     ngOnInit(): void {
-       this.allProducts = this.productService.getAllProducts() ;
-       this.allProdData = this.allProducts;
-       this.search = new HeaderComponent(this.productService);
+      
+     }
     }   
-    searchAllProducts(searchVal:string){
-      if(searchVal == ""){
-        this.allProducts = this.allProdData;
-     }else{
-       this.allProducts = this.allProducts.filter((item) =>{
-          if(item.name.toLocaleLowerCase().includes(searchVal.toLocaleLowerCase())){
-              return item;
-          }
-       })}
-    }
   
-}
+   
+
 

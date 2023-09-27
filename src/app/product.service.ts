@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AllProductsComponent } from './all-products/all-products.component';
+import {HttpClient} from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -633,12 +635,16 @@ export class ProductService {
   ]
   allProducts: any[] = []
   returnedObjects: any[] = []
-
-  constructor() { }
-  getAllProducts() {
-    return this.pharmacyData;
+  search = ""
+  constructor(public http : HttpClient) { }
+  getAllProducts()  : Observable <any> {
+    return this.http.get(`http://localhost:4000/products`);
   }
-  getHighRatedProducts() {
+  searchAllProducts(search:string): Observable<any>{
+       return this.http.get(`http://localhost:4000/search/` + search)
+     }
+  
+  getHighRatedProducts(){
     for (const item of this.pharmacyData) {
       if (item.rating >= 4.8)
         this.returnedObjects.push(item)
@@ -648,20 +654,27 @@ export class ProductService {
   getProductById(id:number) {
     return this.pharmacyData.find(product => product.id === id)
   }
- 
-  getCategory(category:string){
+ allCat:any[]=[]
+  getCategory(category:string = ""){
    let allSelectedCategory:any[] =[]
        this.pharmacyData.filter((select)=>{
          if(select.type===category){
            allSelectedCategory.push(select);
+           this.allCat=allSelectedCategory
          }
        })
        console.log(allSelectedCategory);
-       
+      //  this.allCat=allSelectedCategory
        return allSelectedCategory;
        
      } 
- 
+    //  getAllFoodsBySearchTerm(searchTerm:string){
+    //   return  this.getAllProducts().filter(food =>
+    //     food.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    // }
+    getAllCatBySearchTerm(searchTerm:string):Observable<any>{
+      return  this.http.get(`http://localhost:4000/productCategory/search/` + searchTerm)
+    }
 //   searchAllProducts(searchVal: string): any {
 //     if (searchVal == "") {
 //       return this.getAllProducts();

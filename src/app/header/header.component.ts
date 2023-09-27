@@ -1,11 +1,12 @@
 import { Component, OnInit , Input , inject} from '@angular/core';
 import { ProductService } from '../product.service';
 import { AllProductsComponent } from '../all-products/all-products.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  template:`<app-all-products *ngFor="let products of filteredList" [products] = "products"></app-all-products>`,
+  // template:`<app-all-products *ngFor="let products of filteredList" [products] = "products"></app-all-products>`,
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
@@ -32,8 +33,8 @@ export class HeaderComponent implements OnInit {
       "type": 'Makeup',
     }
   ]
-  constructor(private serv:ProductService) { 
-      this.allProducts = this.serv.getAllProducts()
+  constructor(private serv:ProductService , public router : Router) { 
+      // this.allProducts = this.serv.getAllProducts()
   }
 
   ngOnInit(): void {

@@ -1,5 +1,6 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,8 @@ import { ProductCategoryComponent } from './product-category/product-category.co
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {register} from 'swiper/element/bundle';
+import { SearchComponent } from './search/search.component';
+import { SearchInCategoriesComponent } from './search-in-categories/search-in-categories.component';
 register();
 // import {MatIconModule} from '@angular/material/icons'
 // import {FaIconLibrary} from '@fortawesome/angular-fontawesome'
@@ -36,6 +39,8 @@ register();
     ProductCategoryComponent,
     LoginComponent,
     PageNotFoundComponent,
+    SearchComponent,
+    SearchInCategoriesComponent,
     
   ],
   imports: [
@@ -45,6 +50,7 @@ register();
     BrowserAnimationsModule,
     CarouselModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ProductService } from '../product.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-product-category',
@@ -8,17 +9,21 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-category.component.css']
 })
 export class ProductCategoryComponent implements OnInit , OnDestroy{
+  [x: string]: any;
 
   selectedCategory : any [] =[]
   allSelectedCategory:any[]=[]
   cat:any;
   mySubscription: any;
+  
+  public searchVal = "";
 
-  constructor(
+    constructor(
     private route: ActivatedRoute,
     private router: Router,
     private productService : ProductService) {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      let products :Observable<any>;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
     this.mySubscription = this.router.events.subscribe((event) => {
@@ -27,6 +32,16 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
       }
     });
 
+     route.params.subscribe((params) => {
+      if(params['searchTerm'])
+         products = this.productService.getAllCatBySearchTerm(params['searchTerm']);
+      else
+          this.productService.getCategory();
+      
+      products.subscribe((products) => {
+        this.selectedCategory = products;
+      })   
+    })
   }
 
   ngOnInit(): void {
@@ -37,7 +52,8 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
       this.selectedCategory=this.productService.getCategory(this.cat);
       this.allSelectedCategory = this.selectedCategory
       // console.log(this.selectedCategory);
-    })    
+    })   
+   
   }
 
   ngOnDestroy(): void {
@@ -46,6 +62,16 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
       }
   }
   
+  searchAllProducts(searchVal:string){
+    if(searchVal == ""){
+      this.selectedCategory = this.allSelectedCategory;
+   }else{
+     this.selectedCategory = this.allSelectedCategory.filter((item) =>{
+        if(item.name.toLocaleLowerCase().includes(searchVal.toLocaleLowerCase())){
+            return item;
+        }
+     })}
+  }
 
 }
 

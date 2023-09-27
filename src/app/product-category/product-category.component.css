@@ -109,6 +109,32 @@
      cursor:pointer;
      background-color: #B0D9B1;
    }
+   .search-bar-container {
+    width:80%; 
+    margin: 0 200px;
+
+ }
+ input{
+   border-radius: 25px;
+   background-color: whitesmoke;
+   border: 1px solid lightgray;
+   outline: none;
+   margin-left: 10%;
+   height:50px;
+   font-size: larger;
+ }
+ input:focus{
+   border:2px solid gray;
+ }
+ ::placeholder{
+   color:#79AC78;
+   padding-left: 5px;
+   font-family:Arial, Helvetica, sans-serif;
+ }
+ span svg{
+   margin-left: -35px;
+   fill: #79AC78;
+ }
    #viewProducts{
     margin-top:7%;
     height:50px;

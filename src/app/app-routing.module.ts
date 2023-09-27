@@ -16,12 +16,15 @@ const routes: Routes = [
 
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
+  {path:'search/:searchTerm', component:AllProductsComponent},
   {path: 'login' , component:LoginComponent},
   { path: '', component: HomeComponent },
   { path: 'products', component: AllProductsComponent },
   { path: 'productDetails/:id', component: ProductDetailsComponent },
   { path: 'productCategory', component: ProductCategoryComponent},
-  {path:'**' , component:PageNotFoundComponent}
+  { path: 'productCategory/:searchCat/:searchTerm', component: ProductCategoryComponent},
+
+ // {path:'**' , component:PageNotFoundComponent}
 
 
 ];

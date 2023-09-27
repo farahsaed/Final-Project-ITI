@@ -1,0 +1,16 @@
+[
+    {
+        "name":"yahia Mohammed Mahmoud",
+        "userid":"1",
+        "phoneNumber":12341231,
+        "userType":"Admin",
+        "password":123
+    },
+    {
+        "name":"Ahmed Mohammed Abdelrahman",
+        "userid":"2",
+        "phoneNumber":12341231,
+        "userType":"Client",
+        "password":123
+    }
+]

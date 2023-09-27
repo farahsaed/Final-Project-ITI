@@ -1,4 +1,6 @@
-<!-- <input type="text" class="w-50 mt-3 p-2" [(ngModel)] = "searchVal" /> -->
+<div class="search-bar-container">
+  <app-search-in-categories></app-search-in-categories>
+ </div>
 <body>
     <div id="card" class="container"  [routerLink]="['/productDetails',item.id]" *ngFor="let item of selectedCategory">
       <div>
