@@ -640,6 +640,11 @@ export class ProductService {
   getAllProducts()  : Observable <any> {
     return this.http.get(`http://localhost:4000/products`);
   }
+
+  getProductByID(_id:string){
+    return this.http.get(`http://localhost:4000/product/${_id}`)
+  }
+
   searchAllProducts(search:string): Observable<any>{
        return this.http.get(`http://localhost:4000/search/` + search)
      }
@@ -651,9 +656,9 @@ export class ProductService {
     }
     return this.returnedObjects;
   }
-  getProductById(id:number) {
-    return this.pharmacyData.find(product => product.id === id)
-  }
+  // getProductById(id:number) {
+  //   return this.pharmacyData.find(product => product.id === id)
+  // }
  allCat:any[]=[]
   getCategory(category:string = ""){
    let allSelectedCategory:any[] =[]

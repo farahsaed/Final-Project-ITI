@@ -28,13 +28,13 @@ export class ProductDetailsComponent implements OnInit{
 
   }
   ngOnInit():void{
-    let id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    this.selectedProduct = this.productService.getProductById(id);
-    this.category = this.selectedProduct.type;
-    this.selectedCategory=this.productService.getCategory(this.category);
-      this.allSelectedCategory = this.selectedCategory
-      console.log(id);
-      
+    let id = this.route.snapshot.paramMap.get('id')!;
+    this.productService.getProductByID(id).subscribe({next:data=>{
+      console.log(data);
+      this.selectedProduct=data;
+      this.category = this.selectedProduct.type;
+      this.selectedCategory = this.productService.getCategory(this.category)
+    }});
   }
   
   ngOnDestroy(): void {
@@ -42,6 +42,5 @@ export class ProductDetailsComponent implements OnInit{
       this.mySubscription.unsubscribe();
     }
 }
-
 
 }

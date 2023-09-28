@@ -29,6 +29,17 @@ server.get("/products",function(req,res){
         })
     })
 });
+
+server.get('/product/:id',function(req,res){
+  let id = req.params.id;
+  Product.findById(id)
+  .then((product)=>{
+    res.send(product)
+  }).catch(err=>{
+    console.log(err);
+  })
+})
+
 var cat = []
 server.get("/productCategory/:cat",async function(req,res){
   const searchRegex = new RegExp(req.params.cat, 'i');

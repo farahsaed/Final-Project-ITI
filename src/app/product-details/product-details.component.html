@@ -71,13 +71,13 @@
 >
   <swiper-slide *ngFor="let item of selectedCategory">
 
-    <div class="product-card" [routerLink]="['/productDetails',item.id]">
+    <div class="product-card" [routerLink]="['/productDetails',item._id]">
       <div class="product-tumb">
           <img [src]="item.photo_link" alt="">
       </div>
       <div class="product-details">
           <span class="product-catagory">{{item.type}}</span>
-          <h4><a [routerLink]="['/productDetails',item.id]">{{item.name}}</a></h4>
+          <h4><a [routerLink]="['/productDetails',item._id]">{{item.name}}</a></h4>
           <p>{{item.description}}</p>
           <div class="product-bottom-details">
               <div class="product-price">${{item.price}}</div>
