@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 export class ProductCategoryComponent implements OnInit , OnDestroy{
   [x: string]: any;
 
-  selectedCategory : any [] =[]
+  selectedCategory : any
   allSelectedCategory:any[]=[]
   cat:any;
   mySubscription: any;
@@ -22,7 +22,7 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
     private route: ActivatedRoute,
     private router: Router,
     private productService : ProductService) {
-      let products :Observable<any>;
+    //   let products :Observable<any>;
       this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
@@ -32,28 +32,31 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
       }
     });
 
-     route.params.subscribe((params) => {
-      if(params['searchTerm'])
-         products = this.productService.getAllCatBySearchTerm(params['searchTerm']);
-      else
-          this.productService.getCategory();
+    //  route.params.subscribe((params) => {
+    //   if(params['searchTerm'])
+    //      products = this.productService.getAllCatBySearchTerm(params['searchTerm']);
+    //   else
+    //       this.productService.getCategory();
       
-      products.subscribe((products) => {
-        this.selectedCategory = products;
-      })   
-    })
+    //   products.subscribe((products) => {
+    //     this.selectedCategory = products;
+    //   })   
+    // })
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      // console.log(params);
-      this.cat = params['category'];
+  
+    this.route.queryParams.subscribe(params=>{
+      console.log(params);
+      this.cat = params['category']
       console.log(this.cat);
-      this.selectedCategory=this.productService.getCategory(this.cat);
-      this.allSelectedCategory = this.selectedCategory
-      // console.log(this.selectedCategory);
-    })   
-   
+    })
+  this.productService.getCategory(this.cat).subscribe(products=>{
+    console.log(products);
+    this.selectedCategory=products
+
+  })
+  
   }
 
   ngOnDestroy(): void {

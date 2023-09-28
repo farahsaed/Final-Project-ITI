@@ -637,11 +637,12 @@ export class ProductService {
   returnedObjects: any[] = []
   search = ""
   constructor(public http : HttpClient) { }
+
   getAllProducts()  : Observable <any> {
     return this.http.get(`http://localhost:4000/products`);
   }
 
-  getProductByID(_id:string){
+  getProductByID(_id:string): Observable<any>{
     return this.http.get(`http://localhost:4000/product/${_id}`)
   }
 
@@ -656,23 +657,11 @@ export class ProductService {
     }
     return this.returnedObjects;
   }
-  // getProductById(id:number) {
-  //   return this.pharmacyData.find(product => product.id === id)
-  // }
- allCat:any[]=[]
-  getCategory(category:string = ""){
-   let allSelectedCategory:any[] =[]
-       this.pharmacyData.filter((select)=>{
-         if(select.type===category){
-           allSelectedCategory.push(select);
-           this.allCat=allSelectedCategory
-         }
-       })
-       console.log(allSelectedCategory);
-      //  this.allCat=allSelectedCategory
-       return allSelectedCategory;
-       
-     } 
+
+  getCategory(category:string):Observable<any>{
+    return this.http.get(`http://localhost:4000/productCategory/`,{params:{category}});
+  }
+
     //  getAllFoodsBySearchTerm(searchTerm:string){
     //   return  this.getAllProducts().filter(food =>
     //     food.name.toLowerCase().includes(searchTerm.toLowerCase()));

@@ -40,13 +40,25 @@ server.get('/product/:id',function(req,res){
   })
 })
 
-var cat = []
-server.get("/productCategory/:cat",async function(req,res){
-  const searchRegex = new RegExp(req.params.cat, 'i');
-      let data = await Product.find({type: {$regex:searchRegex}})
-      cat = res.send(data);
-      res.send(data)
-});
+// var cat = []
+// server.get("/productCategory/:cat",async function(req,res){
+//   const searchRegex = new RegExp(req.params.cat, 'i');
+//       let data = await Product.find({type: {$regex:searchRegex}})
+//       cat = res.send(data);
+//       res.send(data)
+// });
+
+server.get('/productCategory',function(req,res){
+  var category = req.query.category;
+  console.log(category);
+  Product.find({type:category})
+  .then(products=>{
+    res.send(products)
+    console.log(products);
+  }).catch(err=>{
+    console.log(err);
+  })
+})
 
 // server.get("/productCategory/:cat/:searchTerm", 
 //   async (req, res) => {
