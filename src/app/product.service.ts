@@ -642,6 +642,10 @@ export class ProductService {
     return this.http.get(`http://localhost:4000/products`);
   }
 
+  getHighRatedProduct():Observable<any>{
+    return this.http.get(`http://localhost:4000/`);
+  }
+
   getProductByID(_id:string): Observable<any>{
     return this.http.get(`http://localhost:4000/product/${_id}`)
   }
@@ -650,13 +654,7 @@ export class ProductService {
        return this.http.get(`http://localhost:4000/search/` + search)
      }
   
-  getHighRatedProducts(){
-    for (const item of this.pharmacyData) {
-      if (item.rating >= 4.8)
-        this.returnedObjects.push(item)
-    }
-    return this.returnedObjects;
-  }
+  
 
   getCategory(category:string):Observable<any>{
     return this.http.get(`http://localhost:4000/productCategory/`,{params:{category}});
@@ -669,6 +667,16 @@ export class ProductService {
     getAllCatBySearchTerm(searchTerm:string):Observable<any>{
       return  this.http.get(`http://localhost:4000/productCategory/search/` + searchTerm)
     }
+
+// getHighRatedProducts(){
+  //   for (const item of this.pharmacyData) {
+  //     if (item.rating >= 4.8)
+  //       this.returnedObjects.push(item)
+  //   }
+  //   return this.returnedObjects;
+  // }
+
+
 //   searchAllProducts(searchVal: string): any {
 //     if (searchVal == "") {
 //       return this.getAllProducts();

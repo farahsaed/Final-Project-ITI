@@ -162,4 +162,13 @@
     margin-left: -35px;
     fill: #79AC78;
   }
+
+  
+  svg{
+    color: gold;
+    font-size: 13px;
+    }
+     .rate{
+    overflow: hidden;
+     }
   

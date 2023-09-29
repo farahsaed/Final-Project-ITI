@@ -115,6 +115,16 @@ server.put("/product/edit/:id",function(req,res){
   });
 });
 
+server.get('/',function(req,res){
+  //find({"likes":{$gt:50}})
+  Product.find({rating:{$gte:4.8}})
+  .then(products=>{
+    res.send(products)
+  }).catch(err=>{
+    console.log(err);
+  })
+})
+
 
 //user
 server.post('/sign-up', (req,res) => {

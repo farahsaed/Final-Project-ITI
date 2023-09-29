@@ -134,3 +134,12 @@
     cursor:pointer;
     background-color: #B0D9B1;
    }
+
+   svg{
+    color: gold;
+    font-size: 13px;
+    }
+     .rate{
+    overflow: hidden;
+     }
+  
