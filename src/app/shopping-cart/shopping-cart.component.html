@@ -1,0 +1,56 @@
+<div class="wrap cf">
+    <h1 class="projTitle">MedLife<span>-Less</span> Shopping Cart</h1>
+    <div class="heading cf">
+      <h1>My Cart</h1>
+      <a routerLink="/products"class="continue">Continue Shopping</a>
+    </div>
+    <div class="cart">
+  <!--    <ul class="tableHead">
+        <li class="prodHeader">Product</li>
+        <li>Quantity</li>
+        <li>Total</li>
+         <li>Remove</li>
+      </ul>-->
+      <ul class="cartWrap" *ngFor="let item of mycart">
+        <li class="items odd">
+          
+      <div class="infoWrap"> 
+          <div class="cartSection">
+          <img [src]="item.photo_link" alt="" class="itemImg" />
+            <p class="itemNumber">#{{item._id}}</p>
+            <h3>{{item.name}}</h3>
+          
+             <!-- <p> <input type="text"  class="qty" placeholder="3"/> x {{item.price}}</p>
+          
+            <p class="stockStatus"> In Stock</p> -->
+          </div>  
+      
+          
+          <div class="prodTotal cartSection">
+            <p>${{item.price}}</p>
+          </div>
+                <div class="cartSection removeWrap">
+             <a  class="remove" (click)="remove(item._id)">x</a>
+          </div>
+        </div>
+        </li>
+   
+      </ul>
+    </div>
+    
+    <div class="promoCode"><label for="promo">Have A Promo Code?</label>
+        <input type="text" name="promo" placholder="Enter Code" />
+    <a href="#" class="btn"></a></div>
+    
+    <div class="subtotal cf">
+      <ul>
+        <li class="totalRow"><span class="label">Subtotal</span><span class="value">${{totalPrice}}</span></li>
+        
+            <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
+        
+              <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
+              <li class="totalRow final"><span class="label">Total</span><span class="value">${{totalPrice+9}}</span></li>
+        <li class="totalRow"><a routerLink="/payment" class="btn continue">Checkout</a></li>
+      </ul>
+    </div>
+  </div>

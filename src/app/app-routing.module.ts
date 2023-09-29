@@ -11,7 +11,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductCategoryComponent } from './product-category/product-category.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-// import { ContactComponent } from './contact/contact.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditproductComponent } from './editproduct/editproduct.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
 
@@ -23,9 +26,14 @@ const routes: Routes = [
   { path: 'products', component: AllProductsComponent },
   { path: 'productDetails/:id', component: ProductDetailsComponent },
   { path: 'productCategory', component: ProductCategoryComponent},
-  { path: 'productCategory/:searchTerm', component: ProductCategoryComponent},
-  // { path: 'contactUs', component: ContactComponent},
-  {path:'**' , component:PageNotFoundComponent}
+  { path: 'productCategory/:searchCat/:searchTerm', component: ProductCategoryComponent},
+
+  {path:'cart',component:ShoppingCartComponent},
+  {path:'payment',component:PaymentComponent},
+
+  { path: 'addProduct',component:AddProductComponent},
+  { path: 'editProduct/:id',component:EditproductComponent},
+   // {path:'**' , component:PageNotFoundComponent}
 
 
 ];

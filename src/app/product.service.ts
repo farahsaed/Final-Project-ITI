@@ -634,18 +634,14 @@ export class ProductService {
     }
   ]
   allProducts: any[] = []
-  returnedObjects: any[] = []
+  returnedObjects: any[] = [];
+  CartItems:any[]=[];
+  CartItemsId:any[]=[];
   search = ""
   constructor(public http : HttpClient) { }
 
-  getAllProducts(pageNumber:number , pageSize:number): Observable<any> {
-    let querydata=`pageNumber=${pageNumber}&pageSize=${pageSize}`
-   return this.http.get(`http://localhost:4000/products?${querydata}`);
- }
-
-
-  getHighRatedProduct():Observable<any>{
-    return this.http.get(`http://localhost:4000/`);
+  getAllProducts()  : Observable <any> {
+    return this.http.get(`http://localhost:4000/products`);
   }
 
   getProductByID(_id:string): Observable<any>{
@@ -656,15 +652,55 @@ export class ProductService {
        return this.http.get(`http://localhost:4000/search/` + search)
      }
   
-  
+  getHighRatedProducts(){
+    for (const item of this.pharmacyData) {
+      if (item.rating >= 4.8)
+        this.returnedObjects.push(item)
+    }
+    return this.returnedObjects;
+  }
 
   getCategory(category:string):Observable<any>{
     return this.http.get(`http://localhost:4000/productCategory/`,{params:{category}});
   }
 
-    getAllCatBySearchTerm(category:string , searchTerm:string):Observable<any>{
-      return  this.http.get(`http://localhost:4000/productCategory/${searchTerm}`, {params:{category}})
+    //  getAllFoodsBySearchTerm(searchTerm:string){
+    //   return  this.getAllProducts().filter(food =>
+    //     food.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    // }
+    getAllCatBySearchTerm(searchTerm:string):Observable<any>{
+      return  this.http.get(`http://localhost:4000/productCategory/search/` + searchTerm)
     }
-
+//   searchAllProducts(searchVal: string): any {
+//     if (searchVal == "") {
+//       return this.getAllProducts();
+//     } else {
+//       this.allProducts = this.getAllProducts()
+//         .filter((item) => {
+//           if (item.name.toLocaleLowerCase().includes(searchVal.toLocaleLowerCase())) {
+//             // this.allProducts.push(item)
+//             return item;
+//       }})
+//     }  
+//   }
+  addProduct(p:any):Observable<any>{
+    return this.http.post("http://localhost:4000/addProduct",p);
+  } 
+  editProduct(p:any,id:any):Observable<any>{
+    return this.http.put(`http://localhost:4000/product/edit/${id}`,p)
+  }
+  addToCart(ProductId:any){
+    this.CartItemsId.push(ProductId);
+   }
+  getCart(){
+    return this.CartItemsId;
+   }
+   removeFromCart(product:any){
+    this.CartItems.map((a:any,index:any)=>{
+      if (product.id==a.id){
+        this.CartItems.splice(index,1)
+      }
+    })
+   }
 }
 

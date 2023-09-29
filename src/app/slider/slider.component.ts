@@ -17,7 +17,7 @@ export class SliderComponent {
       subtitle:"Your health comes first"
     };
     this.slides[1] = {
-      src: 'https://abes.ca/wp-content/uploads/2020/03/testimonials.jpg',
+      src: 'https://applebypharmacy.com/wp-content/uploads/2021/09/Pharmacist_Behind_Counter-1024x683.jpg',
     }
     this.slides[2] = {
       src: 'https://lluh.org/sites/lluh.org/files/images/infographics/sunscreen/infgr-snscrn-main.jpg',

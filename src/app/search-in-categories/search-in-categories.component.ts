@@ -16,15 +16,22 @@ export class SearchInCategoriesComponent {
         this.searchTerm = params['searchTerm'];
     })
     this.route.queryParams.subscribe(params => {
+      // console.log(params);
       this.cat = params['category'];
-   
+      // console.log(this.cat);
+      // this.selectedCategory=this.productService.getCategory(this.cat);
+      // this.allSelectedCategory = this.selectedCategory
+      // console.log(this.selectedCategory);
     })   
   }
 
-  searchInCat(searchTerm:string , category:string = ""):void{
+  // search():void{
+  //   if(this.searchTerm)
+  //   this.router.navigateByUrl('/search/' + this.searchTerm);
+  // }
+  searchInCat(searchTerm:string):void{
     if(searchTerm)
-    this.router.navigate(['/productCategory/'+ searchTerm] , {queryParams:{category: this.cat}});
-
+    this.router.navigateByUrl('/productCategory/'+ this.cat+ '/' + searchTerm);
   }
 
 }

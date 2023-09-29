@@ -13,17 +13,16 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
 
   selectedCategory : any
   allSelectedCategory:any[]=[]
-  selectCat:any 
   cat:any;
-  searchParam:any
   mySubscription: any;
-  products:any
+  
   public searchVal = "";
 
     constructor(
     private route: ActivatedRoute,
     private router: Router,
     private productService : ProductService) {
+    //   let products :Observable<any>;
       this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
@@ -32,6 +31,17 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
         this.router.navigated = false;
       }
     });
+
+    //  route.params.subscribe((params) => {
+    //   if(params['searchTerm'])
+    //      products = this.productService.getAllCatBySearchTerm(params['searchTerm']);
+    //   else
+    //       this.productService.getCategory();
+      
+    //   products.subscribe((products) => {
+    //     this.selectedCategory = products;
+    //   })   
+    // })
   }
 
   ngOnInit(): void {
@@ -41,32 +51,13 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
       this.cat = params['category']
       console.log(this.cat);
     })
-  
-  this.route.params.subscribe((params) => {
-    console.log(params);
-   this.searchParam = params['searchTerm']
-      console.log(this.searchParam)
-      if(params['searchTerm']){
-        this.selectedCategory = this.productService.getAllCatBySearchTerm(this.cat , params['searchTerm']).subscribe({
-           next: (data) => {
-            console.log(this.cat);
-            
-              this.selectedCategory = data
-              console.log(data);
-           
-           }}) } else{
-            this.productService.getCategory(this.cat).subscribe(products=>{
-              console.log(products);
-              this.selectedCategory = products
-          
-            })
-            
-           }
-    })
-  
-  };
+  this.productService.getCategory(this.cat).subscribe(products=>{
+    console.log(products);
+    this.selectedCategory=products
 
+  })
   
+  }
 
   ngOnDestroy(): void {
       if(this.mySubscription){
@@ -86,3 +77,4 @@ export class ProductCategoryComponent implements OnInit , OnDestroy{
   }
 
 }
+

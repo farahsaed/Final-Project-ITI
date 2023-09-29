@@ -11,7 +11,6 @@ import { AboutComponent } from './about/about.component';
 import { SliderComponent } from './slider/slider.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselModule } from '@coreui/angular';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import { ProductComponent } from './product/product.component';
 import { AllProductsComponent } from './all-products/all-products.component';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -22,6 +21,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {register} from 'swiper/element/bundle';
 import { SearchComponent } from './search/search.component';
 import { SearchInCategoriesComponent } from './search-in-categories/search-in-categories.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditproductComponent } from './editproduct/editproduct.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ProductService } from './product.service';
+import { PaymentComponent } from './payment/payment.component';
 register();
 // import {MatIconModule} from '@angular/material/icons'
 // import {FaIconLibrary} from '@fortawesome/angular-fontawesome'
@@ -42,7 +46,10 @@ register();
     PageNotFoundComponent,
     SearchComponent,
     SearchInCategoriesComponent,
-    
+    EditproductComponent,
+    AddProductComponent,
+    ShoppingCartComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +59,8 @@ register();
     CarouselModule,
     FontAwesomeModule,
     HttpClientModule,
-    MatPaginatorModule,
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

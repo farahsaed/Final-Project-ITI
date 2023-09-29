@@ -1,0 +1,82 @@
+<div class="page">
+  <div class="content">
+    <div class="title" id="title-bar">
+      <div class="title__text">
+        <h1>{{pageTitle}}</h1>
+      </div>
+    </div>
+    
+    <div class="content__main">
+      <div class="content__main-page">
+        <div class="box">
+          <form  (ngSubmit)="onSubmit()" #postForm ="ngForm">
+            <input type="text" name="_id"  [(ngModel)]="product._id"  ngModel required>
+            <div class="field__group">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" ngModel required  [(ngModel)]="product.name">
+            </div>
+            <div class="field__group">
+              <label for="manufacturer">manufacturer</label>
+              <input type="text" name = "manufacturer" id ="manufacturer" ngModel required [(ngModel)]="this.product.manufacturer">
+            </div>
+            <div class="field__group">
+               <label for="type">Type</label>
+               <input type="text" name = "type" id ="type" ngModel required [(ngModel)]="this.product.type">
+             </div>
+             <div class="field__group">
+               <label for="usage">Usage</label>
+               <textarea type="text" name = "usage" id ="usage" ngModel required [(ngModel)]="this.product.usage"></textarea>
+             </div>
+             <div class="field__group">
+               <label for="description">Description</label>
+               <textarea type="text" name = "description" id ="description" ngModel required [(ngModel)]="this.product.description"></textarea>
+             </div>
+             <div class="field__group">
+               <label for="price">Price</label>
+               <input type="number" name = "price" id ="price" ngModel required [(ngModel)]="this.product.price">
+             </div>
+             <div class="field__group">
+               <label for="rating">Rating</label>
+               <input type="number" name = "rating" id ="rating" ngModel required [(ngModel)]="this.product.rating">
+             </div>
+            <div class="field__group">
+              <label for="photo_link">Photo Link</label>
+              <input type="text" name="photo_link" id="photo_link" ngModel required [(ngModel)]="this.product.photo_link">
+            </div>
+            <!-- <div class="field__group">
+              <label>Image</label>
+              <div class="imagedrop">
+                <svg class="lnr lnr-cloud-upload icon"name="photo_link" id="photo_link" ><use xlink:href="#lnr-cloud-upload"></use></svg>
+                <span>Drop image here to upload</span>
+              </div>
+            </div> -->
+            <button id="submit" class="button" >Save Changes</button>
+          </form>
+        </div>
+      </div>
+      <div class="content__main-sidebar" id="status">
+        <div class="box">
+          <div class="box__line">
+            <h5>Status</h5>
+            <a href="#" class="published">
+              Published
+            </a>
+            <a href="#" class="">
+              Draft
+            </a>
+          </div>
+          <!-- <div class="box__line">
+            <h5>Schedule</h5>
+            
+            <a href="#" class="">
+              Now
+            </a>
+          </div>
+          <button id="submit" class="button"></button>
+          
+        </div> -->
+      </div>
+    </div>
+    
+  </div>
+</div>

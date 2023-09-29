@@ -11,10 +11,7 @@ export class ProductComponent implements OnInit{
   allProdData:any[] = []
   constructor(private productService:ProductService){}
     ngOnInit(): void {
-      this.productService.getHighRatedProduct().subscribe({next:data=>{
-        this.allProducts = data
-       }}) ;
+       this.allProducts = this.productService.getHighRatedProducts() ;
        this.allProdData = this.allProducts;
-
     }   
 }

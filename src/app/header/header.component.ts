@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.serv.getAllProducts();
+    this.serv.getAllProducts();
   }
   openMenu() {
     this.menuVariable =! this.menuVariable;

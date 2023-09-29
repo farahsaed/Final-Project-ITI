@@ -14,7 +14,7 @@ export class ProductDetailsComponent implements OnInit{
   selectedCategory :any
   allSelectedCategory:any[]=[]
   mySubscription: any;
-
+  ps:ProductService;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -28,6 +28,7 @@ export class ProductDetailsComponent implements OnInit{
         this.router.navigated = false;
       }
     });
+    this.ps=productService;
   }
   ngOnInit():void{
     let id = this.route.snapshot.paramMap.get('id')!;
@@ -39,7 +40,6 @@ export class ProductDetailsComponent implements OnInit{
       this.selectedCategory = this.productService.getCategory(this.category).subscribe(products=>{
         console.log(products);
         this.selectedCategory=products
-    
       })
     }});
   }
@@ -49,5 +49,10 @@ export class ProductDetailsComponent implements OnInit{
       this.mySubscription.unsubscribe();
     }
 }
-
+cart(id:any){
+  this.ps.addToCart(id);
+  console.log(id);
+  console.log(this.ps.CartItems);
+  // alert(`"${this.selectedProduct.name}" has been added to the cart.`);
+}
 }
