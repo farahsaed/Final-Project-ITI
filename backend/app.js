@@ -20,14 +20,30 @@ mongoose.connect("mongodb+srv://pharmacy:mnh123@cluster1.jjj0nxo.mongodb.net/tes
 });
 
 //pharmacy products
-server.get("/products",function(req,res){
-    Product.find().then((productData)=>{
-        res.send(productData);
-    }).catch((err)=>{
-        res.send({
-            error:"Error Getting all products"
-        })
+server.get("/products", function (req, res) {
+  var pageNumber = +req.query.pageNumber;
+  var pageSize = +req.query.pageSize;
+  var requiredProducts = Product.find();
+  var fetchedProducts;
+  if (pageNumber && pageSize) {
+    requiredProducts.skip(pageSize * (pageNumber - 1)).limit(pageSize);
+  }
+  requiredProducts
+    .then((productsData) => {
+      fetchedProducts = productsData;
+      return Product.count();
     })
+    .then((productsCount) => {
+      res.send({
+        totalProducts: productsCount,
+        products: fetchedProducts,
+      });
+    })
+    .catch((err) => {
+      res.send({
+        error: "Error getting product",
+      });
+    });
 });
 
 server.get('/product/:id',function(req,res){
