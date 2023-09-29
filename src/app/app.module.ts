@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { SliderComponent } from './slider/slider.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselModule } from '@coreui/angular';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { ProductComponent } from './product/product.component';
 import { AllProductsComponent } from './all-products/all-products.component';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -51,6 +52,7 @@ register();
     CarouselModule,
     FontAwesomeModule,
     HttpClientModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
