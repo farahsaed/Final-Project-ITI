@@ -11,7 +11,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductCategoryComponent } from './product-category/product-category.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ContactComponent } from './contact/contact.component';
+// import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
 
@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'productDetails/:id', component: ProductDetailsComponent },
   { path: 'productCategory', component: ProductCategoryComponent},
   { path: 'productCategory/:searchTerm', component: ProductCategoryComponent},
-  { path: 'contactUs', component: ContactComponent},
+  // { path: 'contactUs', component: ContactComponent},
   {path:'**' , component:PageNotFoundComponent}
 
 
