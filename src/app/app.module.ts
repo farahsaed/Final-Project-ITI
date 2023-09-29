@@ -22,6 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {register} from 'swiper/element/bundle';
 import { SearchComponent } from './search/search.component';
 import { SearchInCategoriesComponent } from './search-in-categories/search-in-categories.component';
+import { ContactComponent } from './contact/contact.component';
 register();
 // import {MatIconModule} from '@angular/material/icons'
 // import {FaIconLibrary} from '@fortawesome/angular-fontawesome'
@@ -42,6 +43,7 @@ register();
     PageNotFoundComponent,
     SearchComponent,
     SearchInCategoriesComponent,
+    ContactComponent,
     
   ],
   imports: [
