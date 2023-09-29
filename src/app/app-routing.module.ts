@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'products', component: AllProductsComponent },
   { path: 'productDetails/:id', component: ProductDetailsComponent },
   { path: 'productCategory', component: ProductCategoryComponent},
-  { path: 'productCategory/:searchCat/:searchTerm', component: ProductCategoryComponent},
+  { path: 'productCategory/:searchTerm', component: ProductCategoryComponent},
 
  // {path:'**' , component:PageNotFoundComponent}
 
