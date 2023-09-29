@@ -638,9 +638,11 @@ export class ProductService {
   search = ""
   constructor(public http : HttpClient) { }
 
-  getAllProducts()  : Observable <any> {
-    return this.http.get(`http://localhost:4000/products`);
-  }
+  getAllProducts(pageNumber:number , pageSize:number): Observable<any> {
+    let querydata=`pageNumber=${pageNumber}&pageSize=${pageSize}`
+   return this.http.get(`http://localhost:4000/products?${querydata}`);
+ }
+
 
   getHighRatedProduct():Observable<any>{
     return this.http.get(`http://localhost:4000/`);
@@ -660,35 +662,9 @@ export class ProductService {
     return this.http.get(`http://localhost:4000/productCategory/`,{params:{category}});
   }
 
-    //  getAllFoodsBySearchTerm(searchTerm:string){
-    //   return  this.getAllProducts().filter(food =>
-    //     food.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    // }
-    getAllCatBySearchTerm(searchTerm:string):Observable<any>{
-      return  this.http.get(`http://localhost:4000/productCategory/search/` + searchTerm)
+    getAllCatBySearchTerm(category:string , searchTerm:string):Observable<any>{
+      return  this.http.get(`http://localhost:4000/productCategory/${searchTerm}`, {params:{category}})
     }
-
-// getHighRatedProducts(){
-  //   for (const item of this.pharmacyData) {
-  //     if (item.rating >= 4.8)
-  //       this.returnedObjects.push(item)
-  //   }
-  //   return this.returnedObjects;
-  // }
-
-
-//   searchAllProducts(searchVal: string): any {
-//     if (searchVal == "") {
-//       return this.getAllProducts();
-//     } else {
-//       this.allProducts = this.getAllProducts()
-//         .filter((item) => {
-//           if (item.name.toLocaleLowerCase().includes(searchVal.toLocaleLowerCase())) {
-//             // this.allProducts.push(item)
-//             return item;
-//       }})
-//     }  
-//   }
 
 }
 

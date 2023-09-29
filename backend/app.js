@@ -40,13 +40,13 @@ server.get('/product/:id',function(req,res){
   })
 })
 
-// var cat = []
-// server.get("/productCategory/:cat",async function(req,res){
-//   const searchRegex = new RegExp(req.params.cat, 'i');
-//       let data = await Product.find({type: {$regex:searchRegex}})
-//       cat = res.send(data);
-//       res.send(data)
-// });
+server.get("/search/:searchTerm", 
+  async (req, res) => {
+    const searchRegex = new RegExp(req.params.searchTerm, 'i');
+    const data = await Product.find({name: {$regex:searchRegex}})
+    return res.status(200).json(data);
+  }
+)
 
 server.get('/productCategory',function(req,res){
   var category = req.query.category;
@@ -60,25 +60,17 @@ server.get('/productCategory',function(req,res){
   })
 })
 
-// server.get("/productCategory/:cat/:searchTerm", 
-//   async (req, res) => {
-//     var search = req.params.searchTerm
-//     const searchRegex = new RegExp(req.params.searchTerm, 'i');
-//     const categoty = cat.filter((items) => {
-//       if(items.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
-//         return items
-//       }
-//     })
-//     res.send(categoty);
-//   }
-// )
-server.get("/search/:searchTerm", 
+
+server.get("/productCategory/:searchTerm", 
   async (req, res) => {
+    var category = req.query.category
+    var search = req.params.searchTerm
     const searchRegex = new RegExp(req.params.searchTerm, 'i');
-    const data = await Product.find({name: {$regex:searchRegex}})
-    return res.status(200).json(data);
+    const data = await Product.find({type:category , name: {$regex:searchRegex}})
+    res.send(data);
   }
 )
+
 
 server.delete("/products/:id", function (req, res) {
     let prodId = req.params.id;

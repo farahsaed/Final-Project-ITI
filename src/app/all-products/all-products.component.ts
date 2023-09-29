@@ -1,8 +1,7 @@
-import { Component , Input} from '@angular/core';
+import { Component} from '@angular/core';
 import { ProductService } from '../product.service';
-import { HeaderComponent } from '../header/header.component';
 import { ActivatedRoute } from '@angular/router';
-import {Observable} from 'rxjs';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-all-products',
@@ -13,25 +12,48 @@ export class AllProductsComponent{
   allProducts: any[] = []; 
   allProdData:any[] = [];
   searchedProds : any[] = []
-  search!: HeaderComponent;
+  totalProducts: number = 20;
+  pageSize = 5;
+  currentPage:number=1;
+
   public searchVal = "";
 
   constructor(private productService:ProductService ,private route: ActivatedRoute){
-    let products :Observable<any>;
-    route.params.subscribe((params) => {
-      if(params['searchTerm'])
-         products = this.productService.searchAllProducts(params['searchTerm']);
-      else
-         products = this.productService.getAllProducts();
-      
-      products.subscribe((products) => {
-        this.allProducts = products;
-      })   
-    })
+   
   }
     ngOnInit(): void {
-      
+      // let products :Observable<any>;
+      this.route.params.subscribe((params) => {
+        if(params['searchTerm'])
+            this.productService.searchAllProducts(params['searchTerm']).subscribe({
+               next: (data) => {
+                  this.allProducts = data
+               }
+          });
+        else
+           this.productService.getAllProducts(this.currentPage,this.pageSize).subscribe({
+            next: (data) => {
+              console.log(data);
+              this.allProducts = data.products;
+              this.totalProducts=data.totalProducts;
+            },
+          });
+        
+       
+      })
      }
+     changePage(pageData:PageEvent){
+      this.currentPage=pageData.pageIndex+1;
+      this.pageSize=pageData.pageSize;    
+      this.productService.getAllProducts(this.currentPage ,this.pageSize).subscribe({
+        next: (data) => {
+          console.log(data);
+          this.allProducts = data.products;
+          this.totalProducts=data.totalProducts;
+        },
+      });
+      
+    }
     }   
   
    

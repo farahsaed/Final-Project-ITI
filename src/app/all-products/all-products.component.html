@@ -29,4 +29,13 @@
       </div>
   </body>
   
-  
+  <div class="container my-5">
+    <mat-paginator
+      [length]="totalProducts"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page"
+      (page)="changePage($event)"
+    >
+    </mat-paginator>
+  </div>
